@@ -1,0 +1,42 @@
+//BASIC RQT FOR OPRTN.
+  const{test,expect}=require('@playwright/test') or import{test,expect} from '@playwright'   // import basic library
+  test('test',async{page})=>
+
+//OPEN URL
+  await page.goto("url")
+
+//CAPTURE PAGE TITLE
+  const pageTitle=page.Title()
+  await expect(page).toHaveTitle(Title Name)
+  console.log('Page Title:'+pageTitle)
+
+//VERIFY URL
+  await expect(page).toHaveURL('URL')
+
+//VERIFY LOGO ON PAGE
+  await page.goto('URL')
+  const logo=await page.getByAltText('Attribute')
+  await expect(logo).toBeVisible()
+
+//CLICK ON BTN
+  await page.click('xpath')
+
+//FILL DETAIL EX.ID AND PASWD
+  await page.fill('xpath','glbctm3655')
+  await page.fill('xpath','Anurag@3655')
+//VERIFY LOGOUT BTN VISIBLE
+  const logoutBTN=await page.locator('xpath')
+  await expect(logoutBTN).toBeVisible()
+
+//LOCATE MULTIPLE LINK
+  const links=await.page.$$('a')
+  for(const link of links)
+  {const LinkText=await link.textContent()
+   console.log(LinkText)}
+
+//LOCATE ALL PRODUCTS ON PAGE
+   const product=await.page.$$('xpath')
+  for(const product of products)
+  {const ProductName=await product.textContent()
+   console.log(ProductName)}
+  
