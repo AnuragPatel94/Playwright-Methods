@@ -1,0 +1,4 @@
+test file extention should be spec.js
+import all module "require"
+Run Script-npx playright test "file name" --project"driver name" --headed
+Run Codegen Inspector-npx playwright codegen -o test/file name -b
