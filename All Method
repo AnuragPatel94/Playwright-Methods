@@ -39,4 +39,39 @@
   for(const product of products)
   {const ProductName=await product.textContent()
    console.log(ProductName)}
+
+// HANDLE BROKEN LIST
+   const { chromium } = require('playwright');
+   (async () => {
+   const browser = await chromium.launch();
+   const context = await browser.newContext();
+   const page = await context.newPage();
+   await page.goto('http://www.deadlinkcity.com/');
+
+   // Get all href attributes from anchor tags
+   const links = await page.$$eval('a', anchors => anchors.map(a => a.href));
+   console.log(`Total links found: ${links.length}`);
+
+     for (const url of links) {
+        if (!url) {
+        console.log('URL is empty or null');
+        continue;
+          }
+
+       try {
+         // Make a HEAD request to check link status
+         const response = await page.request.head(url);
+         if (response.status() >= 400) {
+         console.log(`${url} is a broken link. Status code: ${response.status()}`);
+      }  else {
+        console.log(`${url} is a valid link. Status code: ${response.status()}`);
+      }
+    }   catch (error) {
+        console.log(`Exception checking URL: ${url} -> ${error.message}`);
+    }
+  }
+
+  await browser.close();
+})();
+
   
