@@ -24,6 +24,7 @@
 //FILL DETAIL EX.ID AND PASWD
   await page.fill('xpath','glbctm3655')
   await page.fill('xpath','Anurag@3655')
+
 //VERIFY LOGOUT BTN VISIBLE
   const logoutBTN=await page.locator('xpath')
   await expect(logoutBTN).toBeVisible()
@@ -48,6 +49,17 @@
    const page = await context.newPage();
    await page.goto('http://www.deadlinkcity.com/');
 
+// CHECK ELEMENT VISIBLE
+   const LogoElement=await page.locator("header-logo");
+   await expect(LogoElement).toBeVisible();
+
+//CHECK ELEMENT ENABLE OR DISABLE
+    const searchBox=await page.locator('xpath');
+    await expect(searchBox).toBeEnabled();
+    await expect(searchBox).toBeDisable();
+
+//CHECK RB BTN IS MARKED OR NOT
+    const
    // Get all href attributes from anchor tags
    const links = await page.$$eval('a', anchors => anchors.map(a => a.href));
    console.log(`Total links found: ${links.length}`);
