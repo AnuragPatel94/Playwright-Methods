@@ -80,6 +80,27 @@
   const txtname=await page.locator(xpath);
   await expect(txtname).toHaveCount();
 
+// HOW TO HANDEL INPUT BOX
+   await expect (await page.locator("xpath")).toBeVisible()
+   await expect (await page.locator("xpath")).toBeEmpty()
+   await expect (await page.locator("xpath")).toBeEnable()
+   await page.locator("xpath").fill("value")
+   await page.waitForTimeOut(5000)
+
+// HOW TO HANDLE RB & CHECK BOX
+   await page.locator("xpath").check()
+   await expect(await page.locator("xpath")).toBeChecked()
+
+// HOW TO HANDLE MULTI CB (CHECK&UNCHECK)
+   CREATE ARRY WITH ALL XPATH AND USING FOR LOOP
+   const checkboxes=[xpath1,xpath2,xpath3]
+   for (const locator of checkboxes){
+        await page.locator(locator).check()
+   if(await page .locator(locator).isChecked()){
+      await page.locator(locator).uncheck()}
+
+// HOW TO HANDLE DROP DOWN
+
    // Get all href attributes from anchor tags
    const links = await page.$$eval('a', anchors => anchors.map(a => a.href));
    console.log(`Total links found: ${links.length}`);
