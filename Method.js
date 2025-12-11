@@ -100,6 +100,74 @@
       await page.locator(locator).uncheck()}
 
 // HOW TO HANDLE DROP DOWN
+     //LOCATE ELEMENT
+       await page.select option("xpath",'txt')
+     //ADD ASSERTION
+       const options=await page.Locator('xpath')
+     //CHECK PRESENCE OF VALUE IN THE DROPDOWN
+       await page.locator('txt').textContent()
+       await expect(content.includes(txt)).toBeTruthy()
+     //CHECK PRESENCE WITH FOR LOOP METHOD
+       const options=awit page.$$('css')
+         let status=false
+       for (const option of options){
+               consol.log(await option.textContent())}
+
+
+// HOw TO HANDLE MULTIPLE DROPDOWN
+     //SELECT OPTION
+       await page.selectOption('xpath'.['value'])
+     //CHECK NUMBER OF OPTION
+       const options=await page.locator('options xpath')
+       await expect(options).toHaveCount(5)
+     //CHECK PRESENCE OF OPTION
+       const content=await page.locator('css').textContent()
+       await expect(content.includes('value')).toBeTruthy()
+
+  //HOW TO HANDLE BOOTSTRAP DROPDOWN
+     //CLICK ON THE DROPDOWN
+       await page.locator('css').click()
+     //TOTAL COUNT
+       const options=await page.locator('css')
+       await expect(options).toHaveCount(10)
+     //SELECT MORE OPTION
+       const options=await page.$$('css')
+         for (let option of options){
+            const value=await option.textContent()
+            console.log("Value is",value)
+          if(Value.includes("V1")||value.includes("V2"){
+              await option.click}}
+
+  //HOW TO HANDLE AUTO SUGGEST DROP DOWN
+     //LOCATE ELEMENT 
+       await page.locator('css').fill('value')
+       await page.waitForSelector("css")
+       const list=await page.$$("css")
+         for (let option of list){
+            const value=await option.textContent()
+            console.log(value)
+           if(value.includes('v1')){
+             await option.click()}
+
+    //HOW TO HANDLE ALERT DILOGE
+       //CREAT DILOGE WINDOW HANDLER
+           page.on('dilog',async dilog=>{
+             expect(dilog.type()).toContain('alert')
+             await dialog.accept()
+
+    //HANDLE FRAME/iFRAME
+        //TOTAL FRAME
+             const allFrame=await page.frames()
+             console.log("Number of Frame:",allFrame.length)
+        //LOCATE FRAME BY OBJECT
+             const frame=await page.frame({url:"URL"})
+        //HANDLE NASTED iFRAME
+             const frame2=await page.frame({"url":,"URL"})
+             await frame2.fill("Locator","Value"})
+             const childFrames=await frame2.childFrames()
+             await childFrames[0].locator("css").check()
+
+     
 
    // Get all href attributes from anchor tags
    const links = await page.$$eval('a', anchors => anchors.map(a => a.href));
