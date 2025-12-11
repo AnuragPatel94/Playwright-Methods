@@ -167,6 +167,20 @@
              const childFrames=await frame2.childFrames()
              await childFrames[0].locator("css").check()
 
+  //HOW TO HANDLE TABLE AND PAGINATION
+
+        //LOCATE TABLE
+           const table=await page.locator("xpath")
+           const columns=await table.locator('thead tr th')
+                console.log('Number of Col:',await columns.count())
+           const row=await table.Locator('tbody tr')
+                console.log'Number of Row:',await row.count())
+        //HOW TO SELECT SPECIFIC ROWS CHECK BOX
+           const machedRow=rows.filter({
+                  has:page.locator('td')
+                  has Text:'product'})
+           await mached Raw.Locator('input').check()
+
      
 
    // Get all href attributes from anchor tags
