@@ -4,3 +4,25 @@ Run Script-npx playright test "file name" --project"driver name" --headed
 Run Codegen Inspector-npx playwright codegen -o test/file name -b
 HARD ASSERTION- If assertion failed will test execution terminated.
 SOFT ASSSERTION-If assertion failed will not termintaed.
+
+//HOOKS
+Before Each-test.beforeeach(async()=>{console.log('BeforeEach')})
+After Each-test.aftereach(async()=>{console.log('AfterEach')})
+Before All-test.beforeall(async()=>{console.log('BeforeAll')})
+After All-test.afterall(async()=>{console.log('afterall')})
+
+//TAGS
+@sanity
+@smoke
+@regression
+--grep@tag name
+
+Flaky Test-Erlier test fail and retrie are passed
+
+//ANOTAION
+.only-Run specific test in suite.
+.skip-Skip test in suite and use with conditional.
+.fail-Kind of negative test scenario.
+.slow-Triple Time.
+
+
