@@ -178,8 +178,99 @@
         //HOW TO SELECT SPECIFIC ROWS CHECK BOX
            const machedRow=rows.filter({
                   has:page.locator('td')
-                  has Text:'product'})
+                  has Text:'product2'})
            await mached Raw.Locator('input').check()
+       
+   //HOW TO SELECT MULTIPLE PRODUCT USING JS FUNCTION
+         //CREATE FUNCTION
+             async function selectProduct(rows,page,name){
+               const machedRow=rows.filter({
+                 has:page.locator('td')
+                 has.text:name})
+             await machedRow.locator('input').check()}
+        //CALL FUNCTION
+             await selectProduct(rows,page,'Product1')
+             await selectProduct('rows.page,'Product3')
+        //PRINT ALL PRODUCT DETAIL USING LOOP AND INNER LOOP
+            for(let i=0;i<await rows count();i++){
+              const row=rows.nth(i);
+              const tds=row.locator('td')
+            for(let j=0;j<await tds.count()-1;j++)
+              console.log(await.tds nth(j).textContent())}
+     //PAGINATION
+        const pages=await page.locator('.pagination li a')
+        console.log('Number Of Pages:',await pages.count())
+           for (let p=0;p<await pages.count();p++){
+             if(p>0){
+               await pages.nth(p).click()}
+             for(leti=0;i<await rows.count();i++){
+               const row=rows.nth(i);
+               const tds=row.locator('td')
+                 for(let j=o;j<await tds.count()-1;j++){
+                   console.log(await tds.nth(j).textContent())}
+
+  //HOW TO HANDLE DATE PICKER
+        //BY FILL METHOD
+               await page.fill('css:','date')
+
+        //BY DATE PICKER
+               const Year="2025"
+               const Month="Mar"
+               const Date="15"
+
+               await page.click('css')
+               while(true){
+                 const currentyear=await page.locator('.css').textcontent()
+                 const currentmonth=await page.locator('.css').textcontent()
+                   if (currentyear==year&&currentmonth==month){
+                     break;}
+                 await page.locator('[title="Next"]').click
+                 const dates=await page.$$("xpath")
+                    for (const dt of dates){
+                      if(await dt.textContent()==date){
+                        await dt.click()}
+
+  //HOW TO HANDLE MOUSE ACTION
+    //HOVER
+      //LOCATE ELEMENT
+        const desktop=await page.location('xpath')
+        const mac=await page.locator('xpath')
+        await desktop.hover()
+        await mac.hover()
+
+    //RIGHT CKICK/CONTEXT CLICK
+        //LOCATE ELEMENT
+          const btn=await page.locator('xpath')
+          await btn.click({btn:'right'})
+          await btn.click({btn:'left'})
+          await page.waitForTimeOut(5000)
+
+    //DOUBLE CKICK
+        //LOCATE ELEMENT
+          const btnCopy=await page.locator('xpath')
+          await btnCopy.dbclick()
+          await expect.toHaveValue('ok')
+
+    //HANDLE DRAG AND DROP ACTION
+        //LOCATE SOURCE AND TARGET ELEMENT
+          const source=await page.locator('[css]')
+          const target=await page.locator('[css]')
+            await sorce.dragTo(Target)
+
+    //HANDLE KEYBOARD ACTION
+        //LOCATE ELEMENT TYPE SOME TEXT
+          await page.type('xpath','welcome glbctm')
+        //SELECT ALL,COPY,DOWN,PASTE
+          await page.Keyboard.press('control+A')
+          await page.Keyboard.press('control+C')
+          await page.Keyboard.press('control+Tab')
+          await page.Keyboard.press('control+V')
+
+
+  //HOW TO UPLOAD AND DOWNLOAD FILE
+       //LOCATE ELEMENT
+                      
+                      
 
      
 
