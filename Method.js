@@ -269,7 +269,15 @@
 
   //HOW TO UPLOAD AND DOWNLOAD FILE
        //LOCATE ELEMENT
-                      
+          await page.waitForSelector('css')
+          await page.locator('css').click()
+          await page.locator('css').setInputFile('FilePath')
+      //MULTIPLE FILE UPLOAD
+          await page.locator('xpath').setInputFile([path1,path2,path3])
+          await page.waitForTimeOut(3000)
+          expect(await page.locator('[css]').toHaveText('FileName')
+      //REMOVING FILE
+          await page.locator('xpath').setInputFile([])
                       
 
      
