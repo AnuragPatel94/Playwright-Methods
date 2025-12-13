@@ -278,6 +278,61 @@
           expect(await page.locator('[css]').toHaveText('FileName')
       //REMOVING FILE
           await page.locator('xpath').setInputFile([])
+
+  //HOW TO GROUPING THE TEST
+      //CREATE AND DESCRIBE BLOCK
+        test.describe('Smoke',()=>{
+          test('Test1',saync({page})=>{
+            console.log('this is test 1...')}
+          test('Test2',saync({page})=>{
+            console.log('this is test 2...')})
+       
+        test.describe('Sanity',()=>{
+          test('Test1',saync({page})=>{
+            console.log('this is test 1...')}
+          test('Test2',saync({page})=>{
+            console.log('this is test 2...')})
+
+        test.describe('Regression',()=>{
+          test('Test1',saync({page})=>{
+            console.log('this is test 1...')}
+          test('Test2',saync({page})=>{
+            console.log('this is test 2...')})
+
+
+  //HOW TAKE SCREEN SHOT
+      //FULL PAGE
+        import{test_expect} from '@playwright/test;
+          test('Page Screenshot',async({page})=>{
+          await page.goto('url')
+          await page.screenshot({path:'Test/ss/'+Date.now()+'HomwPage.png')}+FullPage:true()
+      //PARTICULAR ELEMENT
+          await page .locator('xpath').screenshot({path:'Test/ss/'+Date.now()+'ElementName')}
+               
+   //HOW TO HANDLE MULTIPLE WINDOW PAGE
+        const{test,expect,chromium}=require('@playwright/test');
+                 test('TestName',async()=>{
+      //CREATE BROWSER
+          const browser=await chromium.lunch()
+      //CREATE CONTEXT
+          const context=await browser.newContext()
+      //CREATE OWN PAGE
+           const page1=await context.newpage()
+           const page2=await context.newPage()
+      //SEE ALL PAGES
+           const allpage=context.pages()
+           console.log("No of Page",allPages.length)
+      //OPEN PAGE1 HAVING ANOTHER PAGE LINK
+           await page1.goto("url")
+           await expect(page1).toHaveTitle("Title Name")
+      //CREATE PROMISSE AND OPEN NEW PAGE
+            const pagePromisse=context.waitForEvent('page')
+            await page1.locator('xpath').click()
+            const newPage=await pagePromisse
+            await expect(newPage).toHaveTitle("TitleName")
+            await Page1.wait for TimeOut(3000)
+            await new page.wait for TimeOut(3000)
+            await browser .close()
                       
 
      
